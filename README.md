@@ -1,0 +1,1 @@
+# phpstan-dhexpendency-rules
