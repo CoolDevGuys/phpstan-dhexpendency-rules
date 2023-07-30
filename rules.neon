@@ -1,0 +1,26 @@
+parameters:
+	myVendorName: CoolDevGuys
+	vendorStrictMode: true
+	ignoredExternalVendors: []
+	infrastructureLayerName: Infra
+	applicationLayerName: App
+	domainLayerName: Dom
+
+parametersSchema:
+    myVendorName: string()
+    vendorStrictMode: bool()
+    ignoredExternalVendors: listOf(string())
+    infrastructureLayerName: string()
+    applicationLayerName: string()
+    domainLayerName: string()
+
+services:
+    LayersDependencyFlowRule:
+        class: CoolDevGuys\PHPStan\Rules\LayersDependencyFlowRule
+        arguments:
+            myVendorName: %myVendorName%
+            infrastructureLayerName: %infrastructureLayerName%
+            applicationLayerName: %applicationLayerName%
+            domainLayerName: %domainLayerName%
+        tags:
+            - phpstan.rules.rule
