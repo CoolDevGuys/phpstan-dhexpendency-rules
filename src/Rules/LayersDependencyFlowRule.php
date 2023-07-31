@@ -33,7 +33,7 @@ final class LayersDependencyFlowRule extends BaseArchHexRule
 		try {
 			$currentLayer = $this->getCurrentLayer($scope);
 		} catch (NoNamespaceDetected|NoHexArchitectureDetected $e) {
-			return [RuleErrorBuilder::message($e->getMessage())->build()];
+			return [];
 		}
 
 		$forbiddenLayers = $this->getForbiddenLayersForCurrentLayer($currentLayer);

@@ -32,7 +32,7 @@ final class NoExternalVendorsAllowedFromDomainRule extends BaseArchHexRule
 				return $result;
 			}
 		} catch (NoNamespaceDetected|NoHexArchitectureDetected $e) {
-			return [RuleErrorBuilder::message($e->getMessage())->build()];
+			return [];
 		}
 
 		/** @var Use_ $node */
