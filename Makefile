@@ -7,7 +7,7 @@ composer-install:
 	@echo "[INFO] Installing dependencies 📚"
 	@docker run --rm --volume $(current-dir):/app --user $(id -u):www-data \
 		 composer:2.5 composer install \
-			--prefer-dist --optimize-autoloader --no-ansi
+			--prefer-dist --optimize-autoloader --no-ansi --no-interaction --prefer-dist --no-progress
 
 tests: prerequisites
 	vendor/bin/phpunit

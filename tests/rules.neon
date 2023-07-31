@@ -1,0 +1,7 @@
+parameters:
+	myVendorName: CoolDevGuys
+	vendorStrictMode: true
+	ignoredExternalVendors: ['IgnoredVendor']
+	infrastructureLayerName: Infra
+	applicationLayerName: App
+	domainLayerName: Dom

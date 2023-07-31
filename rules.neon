@@ -1,11 +1,3 @@
-parameters:
-	myVendorName: CoolDevGuys
-	vendorStrictMode: true
-	ignoredExternalVendors: []
-	infrastructureLayerName: Infra
-	applicationLayerName: App
-	domainLayerName: Dom
-
 parametersSchema:
     myVendorName: string()
     vendorStrictMode: bool()
@@ -24,3 +16,14 @@ services:
             domainLayerName: %domainLayerName%
         tags:
             - phpstan.rules.rule
+    NoExternalVendorsAllowedFromDomainRule:
+            class: CoolDevGuys\PHPStan\Rules\NoExternalVendorsAllowedFromDomainRule
+            arguments:
+                myVendorName: %myVendorName%
+                infrastructureLayerName: %infrastructureLayerName%
+                applicationLayerName: %applicationLayerName%
+                domainLayerName: %domainLayerName%
+                vendorStrictMode: %vendorStrictMode%
+                ignoredExternalVendors: %ignoredExternalVendors%
+            tags:
+                - phpstan.rules.rule
