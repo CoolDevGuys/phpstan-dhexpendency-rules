@@ -7,7 +7,9 @@ use CoolDevGuys\PHPStan\Shared\Errors\InvalidVendorName;
 
 final class VendorName implements \Stringable
 {
-	public function __construct(string $name)
+    private string $value;
+
+    public function __construct(string $name)
 	{
 		if (empty($name)) {
 			throw new InvalidVendorName();
